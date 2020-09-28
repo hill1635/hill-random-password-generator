@@ -22,58 +22,59 @@ function writePassword() {
     }
 
     function randomUpperCase() {
-      if (upperCase == true) {
-        var randomUpperLetter = letters[Math.floor(Math.random() * letters.length)];
-        return randomUpperLetter;
+        if (upperCase == true) {
+          var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+          var randomUpperLetter = randomLetter.toUpperCase();
+          return randomUpperLetter;
+        } else {
+          console.log("UC: No");
+        }
+      
+    }
+var rUC = randomUpperCase();
+console.log(rUC);
+
+    function randomLowerCase() {
+      if (lowerCase == true) {
+        var randomLowerLetter = letters[Math.floor(Math.random() * letters.length)];
+        return randomLowerLetter;
       } else {
-        console.log("UC: No");
+        console.log("LC: No");
       }
     }
-  }
-  var rUC = randomUpperCase();
-  console.log(rUC);
+    var rLC = randomLowerCase();
+    console.log(rLC);
 
-  function randomLowerCase() {
-    if (lowerCase == true) {
-      var randomLowerLetter = letters[Math.floor(Math.random() * letters.length)];
-      return randomLowerLetter;
-    } else {
-      console.log("LC: No");
+    function randomNumber() {
+      if (includeNumbers == true) {
+        var randomNum = letters[Math.floor(Math.random() * numbers.length)];
+        return randomNum;
+      } else {
+        console.log("Num: No");
+      }
     }
-  }
-  var rLC = randomLowerCase();
-  console.log(rLC);
+    var rNum = randomNumber();
+    console.log(rNum);
 
-  function randomNumber() {
-    if (includeNumbers == true) {
-      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
-      return randomNum;
-    } else {
-      console.log("Num: No");
+    function randomCharacter() {
+      if (uniqueCharacters == true) {
+        var randomChar = characters[Math.floor(Math.random() * characters.length)];
+        return randomChar
+      } else {
+        console.log("Unique: No");
+      }
     }
+    var rChar = randomCharacter();
+    console.log(rChar);
+
+    // Code to randomly choose randomly chosen indexes from different categories.
+    // Use for loop until it meets letterCount number
   }
-  var rNum = randomNumber();
-  console.log(rNum);
 
-  function randomCharacter() {
-    if (uniqueCharacters == true) {
-      var randomChar = characters[Math.floor(Math.random() * characters.length)];
-      return randomChar
-    } else {
-      console.log("Unique: No");
-    }
-  }
-  var rChar = randomCharacter();
-  console.log(rChar);
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-  // Code to randomly choose randomly chosen indexes from different categories.
-  // Use for loop until it meets letterCount number
-}
-
-var password = generatePassword();
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password;
+  passwordText.value = password;
 
 }
 
