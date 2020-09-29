@@ -48,8 +48,6 @@ function writePassword() {
     master = addCharacters();
     console.log("master is now: ", master);
 
-    // Code breaks here, all is good up above.
-    // This seems good. Use this for master list to consolidate functions.
     function addPassChar() {
       var passChar = [];
       for (let i = 0; i < letterCount; i++) {
@@ -60,9 +58,9 @@ function writePassword() {
       console.log("passChar is: ", passChar);
       return passChar;
     }
-    var passyGeny = addPassChar()
-    console.log(passyGeny);
-    return passyGeny;
+    var passCharArray = addPassChar();
+    var passString = passCharArray.join("");
+    return passString;
     // Code returns arrray with commas, HOW DOES I GETS NO COMMAS?!
   }
 
