@@ -13,59 +13,63 @@ function writePassword() {
   var lowerCase = confirm("Do you want to include lower case letters?");
   var includeNumbers = confirm("Do you want to include numbers?");
   var uniqueCharacters = confirm("Do you want to include unique characters?");
+  var master = [];
 
   function generatePassword() {
-    if (letterCount > 0) {
-      console.log(letterCount);
-    } else {
-      console.log("letters: No");
+    // Is this necessary?
+    function passwordLength() {
+      if (letterCount > 0) {
+        var passLength = parseInt(letterCount);
+        return passLength;
+      } else {
+        console.log("letters: No");
+      }
     }
 
-    function randomUpperCase() {
-        if (upperCase == true) {
-          var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-          var randomUpperLetter = randomLetter.toUpperCase();
-          return randomUpperLetter;
-        } else {
-          console.log("UC: No");
-        }
-      
-    }
-var rUC = randomUpperCase();
-console.log(rUC);
+    // function addCharacters() {
+    //   if (upperCase == true) {
+    //     for (var i of letters) {
+    //       letters[i].toUpperCase();
+    //       master.push(i);
+    //     }
+    //   }
 
-    function randomLowerCase() {
       if (lowerCase == true) {
-        var randomLowerLetter = letters[Math.floor(Math.random() * letters.length)];
-        return randomLowerLetter;
-      } else {
-        console.log("LC: No");
+        for (var i of letters) {
+          master.push(i);
+        }
       }
-    }
-    var rLC = randomLowerCase();
-    console.log(rLC);
 
-    function randomNumber() {
       if (includeNumbers == true) {
-        var randomNum = letters[Math.floor(Math.random() * numbers.length)];
-        return randomNum;
-      } else {
-        console.log("Num: No");
+        for (var i of numbers) {
+          master.push(i);
+        }
       }
-    }
-    var rNum = randomNumber();
-    console.log(rNum);
 
-    function randomCharacter() {
       if (uniqueCharacters == true) {
-        var randomChar = characters[Math.floor(Math.random() * characters.length)];
-        return randomChar
-      } else {
-        console.log("Unique: No");
+        for (var i of characters) {
+          master.push(i);
+        }
       }
+      console.log(master);
+      return master;
     }
-    var rChar = randomCharacter();
-    console.log(rChar);
+    var passArray = addCharacters();
+    console.log(passArray);
+
+    // This seems good. Use this for master list to consolidate functions.
+    function passGen() {
+      var arrayTest = [];
+      for (let i = 0; i < letterCount; i++) {
+        var randomRandomizer = rMaster[Math.floor(Math.random() * rMaster.length)];
+        console.log(randomRandomizer);
+        arrayTest.push(randomRandomizer);
+      }
+      console.log("arrayTest: ", arrayTest);
+      return arrayTest;
+    }
+    var passyGeny = passGen()
+    console.log(passyGeny);
 
     // Code to randomly choose randomly chosen indexes from different categories.
     // Use for loop until it meets letterCount number
