@@ -16,23 +16,14 @@ function writePassword() {
   var master = [];
 
   function generatePassword() {
-    // Is this necessary?
-    function passwordLength() {
-      if (letterCount > 0) {
-        var passLength = parseInt(letterCount);
-        return passLength;
-      } else {
-        console.log("letters: No");
-      }
-    }
 
-    // function addCharacters() {
-    //   if (upperCase == true) {
-    //     for (var i of letters) {
-    //       letters[i].toUpperCase();
-    //       master.push(i);
-    //     }
-    //   }
+    function addCharacters() {
+      //   if (upperCase == true) {
+      //     for (var i of letters) {
+      //       letters[i].toUpperCase();
+      //       master.push(i);
+      //     }
+      //   }
 
       if (lowerCase == true) {
         for (var i of letters) {
@@ -54,25 +45,25 @@ function writePassword() {
       console.log(master);
       return master;
     }
-    var passArray = addCharacters();
-    console.log(passArray);
+    master = addCharacters();
+    console.log("master is now: ", master);
 
+    // Code breaks here, all is good up above.
     // This seems good. Use this for master list to consolidate functions.
-    function passGen() {
-      var arrayTest = [];
+    function addPassChar() {
+      var passChar = [];
       for (let i = 0; i < letterCount; i++) {
-        var randomRandomizer = rMaster[Math.floor(Math.random() * rMaster.length)];
-        console.log(randomRandomizer);
-        arrayTest.push(randomRandomizer);
+        var randomChar = master[Math.floor(Math.random() * master.length)];
+        console.log(randomChar);
+        passChar.push(randomChar);
       }
-      console.log("arrayTest: ", arrayTest);
-      return arrayTest;
+      console.log("passChar is: ", passChar);
+      return passChar;
     }
-    var passyGeny = passGen()
+    var passyGeny = addPassChar()
     console.log(passyGeny);
-
-    // Code to randomly choose randomly chosen indexes from different categories.
-    // Use for loop until it meets letterCount number
+    return passyGeny;
+    // Code returns arrray with commas, HOW DOES I GETS NO COMMAS?!
   }
 
   var password = generatePassword();
