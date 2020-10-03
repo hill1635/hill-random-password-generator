@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -6,10 +5,9 @@ var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var characters = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "|", ";", ":", "<", ">", "/", "?"];
 
-// Write password to the #password input
 function writePassword() {
 
-  var letterCount = prompt("How many letters?");
+  var letterCount = prompt("How many characters?");
   var upperCase = confirm("Do you want to include upper case letters?");
   var lowerCase = confirm("Do you want to include lower case letters?");
   var includeNumbers = confirm("Do you want to include numbers?");
@@ -19,6 +17,7 @@ function writePassword() {
   function generatePassword() {
 
     function addCharacters() {
+
       if (upperCase == true) {
         for (var i of upperLetters) {
           master.push(i);
@@ -42,20 +41,16 @@ function writePassword() {
           master.push(i);
         }
       }
-      console.log(master);
       return master;
     }
     master = addCharacters();
-    console.log("master is now: ", master);
 
     function addPassChar() {
       var passChar = [];
       for (let i = 0; i < letterCount; i++) {
         var randomChar = master[Math.floor(Math.random() * master.length)];
-        console.log(randomChar);
         passChar.push(randomChar);
       }
-      console.log("passChar is: ", passChar);
       return passChar;
     }
     var passCharArray = addPassChar();
@@ -67,8 +62,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
