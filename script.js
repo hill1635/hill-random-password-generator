@@ -12,27 +12,19 @@ var master = [];
 
 function addCharacters() {
   if (upperCase == true) {
-    for (var i of upperLetters) {
-      master.push(i);
-    }
+    master = [...master, ...upperLetters];
   }
 
   if (lowerCase == true) {
-    for (var i of lowerLetters) {
-      master.push(i);
-    }
+    master = [...master, ...lowerLetters];
   }
 
   if (includeNumbers == true) {
-    for (var i of numbers) {
-      master.push(i);
-    }
+    master = [...master, ...numbers];
   }
 
   if (uniqueCharacters == true) {
-    for (var i of characters) {
-      master.push(i);
-    }
+    master = [...master, ...characters];
   }
   return master;
 }
